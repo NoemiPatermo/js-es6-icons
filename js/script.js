@@ -108,9 +108,6 @@ const icons = [
 //per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
 const containerHTML = document.querySelector('.icons-content');
 
-const arraySpeculare = icons.map((element) =>{
-    return element;
-})
 
 //creare una funzione che filtra l'array originale e a seconda della scelta, ritorna un nuovo arrray
 /**
@@ -119,7 +116,7 @@ const arraySpeculare = icons.map((element) =>{
  * @param {*} originalList 
  */
 function filterIcons(choice, originalList){
-    const newArray = originalList.filter((icon) =>{
+    return originalList.filter((icon) =>{
         //ritorna true solo se corrisponde al filtro
         if(choice === "all"){
             return true;
@@ -132,26 +129,43 @@ function filterIcons(choice, originalList){
     })
 }
 
+function listIconsHTML(filter) {
+
+//qui prima filtri e poi sotto stampi
+    const iconsFiltered = filterIcons(filter, icons);
+
+    //stai ciclando sull'array che ti restituisce il map
+    iconsFiltered.forEach((icon) => {
+        const {name, prefix, family, type } = icon; 
+                                                    //destrutturazione oggetto + icone + classe per nome sotto icona
+                                                    //inizi a lavorare col type per la milestone 2 e le colori per tipo
+        containerHTML.innerHTML += `            
+        <div class="icon-card col">
+            <div class="icon-card-inner">
+                    <div class="icon ${type}">          
+                        <i class="${family} ${prefix}${name}"></i>
+                    </div>
+                    <div class="nome">
+                        ${name}
+                    </div> 
+            </div>
+        </div>`
+    });
+
+}
+
+listIconsHTML("all");
+
+const selectElement = document.querySelector(".type-select");
+
+//event è la descrizione dell'evento e contiene in even.target.value il valore della select selezionata
+selectElement.addEventListener('change', (event) => {
+    
+    listIconsHTML(event.target.value);
+  });
 
 
 
-//stai ciclando sull'array che ti restituisce il map
-arraySpeculare.forEach((icon) => {
-    const {name, prefix, family, type } = icon; 
-                                                  //destrutturazione oggetto + icone + classe per nome sotto icona
-                                                  //inizi a lavorare col type per la milestone 2 e le colori per tipo
-    containerHTML.innerHTML += `            
-    <div class="icon-card col">
-        <div class="icon-card-inner">
-                <div class="icon ${type}">          
-                    <i class="${family} ${prefix}${name}"></i>
-                </div>
-                <div class="nome">
-                    ${name}
-                </div> 
-        </div>
-    </div>`
-});
 //Milestone 3
 //Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 
