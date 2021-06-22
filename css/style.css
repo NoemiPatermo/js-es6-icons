@@ -29,3 +29,15 @@
     font-size: 13px;
     font-weight: 600;
 }
+/*Milestone 2   
+ Coloriamo le icone per tipo.
+ Le classi sono state create sul js, qui le richiami solo per cololarle*/
+.icon.animal{
+    color: blue;
+}
+.icon.vegetable{
+    color: orange;
+}
+.icon.user{
+    color: purple;
+}
