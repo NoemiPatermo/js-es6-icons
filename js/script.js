@@ -107,7 +107,7 @@ const icons = [
 
 
 
-//creare una funzione che filtra l'array originale e a seconda della scelta, ritorna un nuovo arrray
+//creare una funzione che filtra l'array originale e a seconda della scelta, ritorna un nuovo array
 /**
  * filtra originalList a seconda della scelta
  * @param {*} choice ["all", "animal", "vegetable", "user"]
@@ -129,20 +129,18 @@ function filterIcons(choice, originalList){
 
 function listIconsHTML(filter) {
 
-//qui prima filtri e poi sotto stampi
+    //qui prima filtri e poi sotto stampi
     const iconsFiltered = filterIcons(filter, icons);
 
     const containerHTML = document.querySelector('.icons-content');
-    
+
     //ogni volta che viene lanciata la funzione per popolare html
-    // lo devi resettare per evitare che si aggiungano la card
+    // lo devi resettare per evitare che si aggiungano le card
     containerHTML.innerHTML = "";
 
     //stai ciclando sull'array che ti restituisce il map
     iconsFiltered.forEach((icon) => {
         const {name, prefix, family, type } = icon; 
-                                                    //destrutturazione oggetto + icone + classe per nome sotto icona
-                                                    //inizi a lavorare col type per la milestone 2 e le colori per tipo
         containerHTML.innerHTML += `            
         <div class="icon-card col">
             <div class="icon-card-inner">
