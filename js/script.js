@@ -107,7 +107,9 @@ const icons = [
 
 //per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
 const containerHTML = document.querySelector('.icons-container');
+
 icons.forEach((icon) => {
+    const {name, prefix, family } = icon; //destrutturazione oggetto
     containerHTML.innerHTML += `
-    <div>${icon.name}</div>`
+    <div><i class = "${family} ${prefix}${name}"></i></div>`
 });
