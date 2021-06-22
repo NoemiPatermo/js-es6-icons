@@ -105,8 +105,6 @@ const icons = [
 //Milestone 1
 //Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
-//per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
-const containerHTML = document.querySelector('.icons-content');
 
 
 //creare una funzione che filtra l'array originale e a seconda della scelta, ritorna un nuovo arrray
@@ -133,6 +131,12 @@ function listIconsHTML(filter) {
 
 //qui prima filtri e poi sotto stampi
     const iconsFiltered = filterIcons(filter, icons);
+
+    const containerHTML = document.querySelector('.icons-content');
+    
+    //ogni volta che viene lanciata la funzione per popolare html
+    // lo devi resettare per evitare che si aggiungano la card
+    containerHTML.innerHTML = "";
 
     //stai ciclando sull'array che ti restituisce il map
     iconsFiltered.forEach((icon) => {

@@ -1,6 +1,14 @@
 .icons-container{
     background-color:#ddd;
 }
+nav h1{
+    color: aqua;
+}
+.select-box{
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
 
 .icon-card{ /* è la tua col*/
     flex-basis: calc(100% / 5);
