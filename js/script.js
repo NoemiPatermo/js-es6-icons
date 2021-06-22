@@ -109,9 +109,13 @@ const icons = [
 const containerHTML = document.querySelector('.icons-content');
 
 icons.forEach((icon) => {
-    const {name, prefix, family } = icon; //destrutturazione oggetto
-    containerHTML.innerHTML += `
+    const {name, prefix, family } = icon; //destrutturazione oggetto + icone + span per nome sotto icona
+    containerHTML.innerHTML += `            
     <div class="icon-card col">
-        <i class="${family} ${prefix}${name}"></i>
+        <div class="icon-card-inner">
+            <i class="${family} ${prefix}${name}"></i>
+            <br>
+            <span>${name}</span> 
+         </div>
     </div>`
 });

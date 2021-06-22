@@ -1,5 +1,14 @@
+.icons-container{
+    background-color:#ddd;
+}
+
 .icon-card{
-    width: calc(100% / 5);
+    flex-basis: calc(100% / 5);
     height: 200px;
     border: 1px solid green;
+}
+.icon-card-inner{
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
 }
