@@ -102,3 +102,12 @@ const icons = [
 		family: 'fas'
 	}
 ];
+//Milestone 1
+//Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
+
+//per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
+const containerHTML = document.querySelector('.icons-container');
+icons.forEach((icon) => {
+    containerHTML.innerHTML += `
+    <div>${icon.name}</div>`
+});
