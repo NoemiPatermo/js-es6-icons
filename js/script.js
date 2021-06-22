@@ -111,16 +111,16 @@ const containerHTML = document.querySelector('.icons-content');
 icons.forEach((icon) => {
     const {name, prefix, family, type } = icon; 
                                                   //destrutturazione oggetto + icone + span per nome sotto icona
-                                                  //inizi a lavorare col type per la milestone 2
+                                                  //inizi a lavorare col type per la milestone 2 e le colori per tipo
     containerHTML.innerHTML += `            
     <div class="icon-card col">
         <div class="icon-card-inner">
-            <div class="icon ${type}">          
-                <i class="${family} ${prefix}${name}"></i>
-            </div>
-            <div class="nome">
-                ${name}
-            </div> 
-         </div>
+                <div class="icon ${type}">          
+                    <i class="${family} ${prefix}${name}"></i>
+                </div>
+                <div class="nome">
+                    ${name}
+                </div> 
+        </div>
     </div>`
 });
