@@ -108,9 +108,37 @@ const icons = [
 //per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
 const containerHTML = document.querySelector('.icons-content');
 
-icons.forEach((icon) => {
+const arraySpeculare = icons.map((element) =>{
+    return element;
+})
+
+//creare una funzione che filtra l'array originale e a seconda della scelta, ritorna un nuovo arrray
+/**
+ * filtra originalList a seconda della scelta
+ * @param {*} choice ["all", "animal", "vegetable", "user"]
+ * @param {*} originalList 
+ */
+function filterIcons(choice, originalList){
+    const newArray = originalList.filter((icon) =>{
+        //ritorna true solo se corrisponde al filtro
+        if(choice === "all"){
+            return true;
+        }
+        if(choice === icon.type){
+            return true;
+        }
+        //se non è riuscito ad attivare gli altri return
+        return false;
+    })
+}
+
+
+
+
+//stai ciclando sull'array che ti restituisce il map
+arraySpeculare.forEach((icon) => {
     const {name, prefix, family, type } = icon; 
-                                                  //destrutturazione oggetto + icone + span per nome sotto icona
+                                                  //destrutturazione oggetto + icone + classe per nome sotto icona
                                                   //inizi a lavorare col type per la milestone 2 e le colori per tipo
     containerHTML.innerHTML += `            
     <div class="icon-card col">
@@ -124,3 +152,11 @@ icons.forEach((icon) => {
         </div>
     </div>`
 });
+//Milestone 3
+//Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+//tutto si attiva quando l'utente cambia l'opzione della select
+//abbiamo bisogno di array che cambia di volta in volta a seconda della selezione dell'utente, ne crei uno speculare
+// dove attivi dei filter
+//ci sono funzioni che vengono richiamate  quando l utente accede in pagina e altre quando avviene la selezione
+
