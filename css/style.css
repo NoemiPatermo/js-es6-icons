@@ -1,0 +1,5 @@
+.icon-card{
+    width: calc(100% / 5);
+    height: 200px;
+    border: 1px solid green;
+}

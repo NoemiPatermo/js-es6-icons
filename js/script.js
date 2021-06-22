@@ -106,10 +106,12 @@ const icons = [
 //Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
 
 //per mostrare la lista utilizza il forEach e genera in maniera dinamica la classe di font Awesome
-const containerHTML = document.querySelector('.icons-container');
+const containerHTML = document.querySelector('.icons-content');
 
 icons.forEach((icon) => {
     const {name, prefix, family } = icon; //destrutturazione oggetto
     containerHTML.innerHTML += `
-    <div><i class = "${family} ${prefix}${name}"></i></div>`
+    <div class="icon-card col">
+        <i class="${family} ${prefix}${name}"></i>
+    </div>`
 });
